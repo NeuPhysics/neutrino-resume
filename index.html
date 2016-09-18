@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+
+  <!-- SEO BEGIN -->
+  <title>Neutrino Resume | NeuPhysics</title>
+
+  <meta name="description" content="A resume for neutrinos, the mystery particle.">
+
+  <meta name="keywords" content="Neutrino, High Energy Physics, Particle Physics">
+
+  <meta name="author" content="Lei Ma">
+
+  <!-- SEO END -->
+
+  <!--jQuery-->
+  <script src="assets/jquery-1.11.1.min.js"></script>
+  <!--Angular-->
+  <script src="assets/angular.js"></script>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="assets/bootstrap.min.css">
+  <script src="assets/bootstrap.min.js"></script>
+
+  <!--ng-jsonresume-->
+  <script src="assets/ng-jsonresume.js"></script>
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <script>
+    // create a new module called mywebsite that uses ng-jsonresume as a dependency
+    angular.module('neutrino', ['ng-jsonresume']);
+  </script>
+
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+</head>
+
+<body ng-app="neutrino">
+  <div class="container">
+
+
+    <resume resume-url="data/neutrino-resume.json" template-url="templates/resume-template-particles.html"></resume>
+  </div>
+
+<div class="footer">
+  <div>
+    <span class="footer-span">Made with <i class="fa fa-heart heart"></i> by NeuPhysics</span> <span> <a href="http://docs.neutrino.xzy">Neutrino Notes</a> </span>
+  </div>
+</div>
+
+</body>
+
+</html>

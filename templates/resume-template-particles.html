@@ -1,0 +1,339 @@
+<!--This template was taken from https://github.com/erming/jsonresume-theme-flat
+  and adapted for AngularJS.
+	More potential themes can be found at
+	  http://node-modules.com/search?q=jsonresume-theme-*
+	These steps were taken to adapt for use with Angular:
+	* removing <html>, <head>, <body> tags
+	* prefixing all CSS selectors with "resume"
+	* changing the template syntax from moustache to Angular
+-->
+
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+
+	<style type="text/css">
+resume a {
+	color: #2ecc71;
+}
+resume a:focus,
+resume a:hover {
+	color: #f1c40f;
+	text-decoration: none;
+}
+resume p {
+	line-height: 1.5;
+	margin: 0;
+}
+resume p + p {
+	margin-top: 10px;
+}
+resume h1,
+resume h2,
+resume h3,
+resume h4 {
+	margin-top: 0
+}
+resume section {
+	margin-top: 30px;
+}
+resume li {
+	line-height: 1.8;
+	list-style: none;
+}
+resume li:before {
+	content: "\f052";
+	float: left;
+	font: 13px Octicons;
+	margin-top: 6px;
+	margin-left: -20px;
+	opacity: .1;
+	position: absolute;
+}
+resume blockquote {
+	border-left: 5px solid #e7e9ec;
+	font-size: 14px;
+}
+reume em {
+	color: #95a5a6;
+	font-weight: normal;
+	font-style: normal;
+}
+resume h4 span:first-child {
+	color: #000;
+	font-weight: bold;
+}
+resume .container {
+	max-width: 750px;
+	padding: 0 30px;
+}
+resume .col-sm-6 {
+	margin-bottom: 10px;
+}
+resume .col-sm-12 h4 {
+	margin-top: 12px;
+}
+resume .col-sm-12 + .col-sm-12 {
+	margin-top: 30px;
+}
+resume #header {
+	background: #f4f6f6;
+	padding: 50px 0;
+	margin-bottom: 30px;
+}
+resume #header h2 {
+	color: #95a5a6;
+	font-size: 24px;
+}
+resume #content h3 {
+	color: #f1c40f;
+	font-size: 26px;
+	margin-top: -4px;
+}
+resume #content aside {
+	text-align: right;
+	padding-right: 30px;
+}
+resume #profiles .network {
+	text-transform: capitalize;
+}
+resume #solved .position,
+resume #mystery .position {
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+resume #hot .area {
+	font-weight: bold;
+}
+resume #hot .area:before {
+	content: "\f0d7";
+	font: 16px Octicons;
+	margin-right: 6px;
+}
+resume #hot .studyType {
+	margin-left: 25px;
+}
+resume #awards .summary,
+resume #publications .summary {
+	margin-top: 8px;
+}
+resume #publications .website a:before {
+	content: attr(href);
+}
+
+@media (min-width: 480px) {
+	resume .strike-through {
+		border-top: 1px solid #f4f6f6;
+		height: 20px;
+		margin-top: 12px;
+		margin-bottom: -2px;
+		position: relative;
+	}
+	resume .strike-through span,
+	resume .strike-through a {
+		background: #fff;
+		position: absolute;
+	}
+	resume .strike-through span:first-child {
+		padding-right: 20px;
+		margin-top: -12px;
+	}
+	resume .strike-through span + span {
+		font-size: 14px;
+		margin-top: -10px;
+		padding-left: 20px;
+		right: 0;
+	}
+}
+@media (max-width: 768px) {
+	resume .col-sm-6:last-child {
+		margin-bottom: 0px;
+	}
+	resume #content aside {
+		margin-bottom: 20px;
+		padding-right: 0;
+		text-align: left;
+	}
+	resume #publications .website a:before {
+		content: "View publication";
+	}
+}
+@media (max-width: 480px) {
+	resume h1 {
+		font-size: 26px;
+	}
+	resume .date {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+	resume .strike-through span:first-child {
+		margin-bottom: 7px;
+	}
+	resume .strike-through span {
+		display: block;
+	}
+	resume #header {
+		margin-bottom: 10px;
+		padding: 40px 0;
+	}
+	reume #actions {
+		display: none;
+	}
+}
+
+	</style>
+
+
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 col-sm-push-3">
+					<h1>
+						{{basics.name}}
+					</h1>
+					<h2>
+						{{basics.label}}
+					</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="content" class="container">
+
+	<section id="basics" class="row">
+		<aside class="col-sm-3">
+			<h3>Basics</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<strong>Charge</strong>
+				<div class="charge">{{basics.charge}}</div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Spin</strong>
+				<div class="charge">{{basics.spin}}</div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Flavors</strong>
+				<div class="flavors">\({{basics.flavors}}\)</div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Mass</strong>
+				<div class="mass">
+					{{basics.mass}}
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Handedness</strong>
+				<div class="handedness">
+					{{basics.handedness}}
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	<section id="mysteries" class="row" ng-if="basics.mysteries">
+		<aside class="col-sm-3">
+			<h3>Mysteries</h3>
+		</aside>
+		<div class="col-sm-9">
+			<p>{{basics.mysteries}}</p>
+		</div>
+	</section>
+	<section id="salient" class="row" ng-if="basics.salient">
+		<aside class="col-sm-3">
+			<h3>Salient Features</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-6" ng-repeat="salient in basics.salient">
+					<strong class="feature">
+						{{salient.feature}}
+					</strong>
+					<div class="description">
+						<div class="url">
+							<a href="{{salient.url}}">{{salient.description}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="solved" class="row" ng-if="solved">
+		<aside class="col-sm-3">
+			<h3>Solved Puzzles</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-12" ng-repeat="solved in solved">
+					<h4 class="strike-through">
+						<span>{{solved.puzzle}}</span>
+					</h4>
+					<div class="summary">
+						<p>{{solved.summary}}</p>
+					</div>
+					<h4 ng-if="solved.keywords">Keywords</h4>
+					<ul class="keywords" ng-if="solved.keywords">
+						<li class="bullet" ng-repeat="keywords in solved.keywords">
+							{{keywords}}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="mystery" class="row" ng-if="mystery">
+		<aside class="col-sm-3">
+			<h3>Mystery</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-12" ng-repeat="mystery in mystery">
+					<h4 class="strike-through">
+						<span>{{mystery.organization}}</span>
+						<span class="date">
+							{{mystery.startDate}} — {{mystery.endDate}}
+						</span>
+					</h4>
+					<div class="website pull-right">
+						<a href="{{mystery.website}}">{{mystery.website}}</a>
+					</div>
+					<div class="position">
+						{{mystery.position}}
+					</div>
+					<div class="summary">
+						<p>{{mystery.summary}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="hot" class="row" ng-if="hot">
+		<aside class="col-sm-3">
+			<h3>Hot</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12" ng-repeat="hot in hot">
+				<h4 class="strike-through">
+					<span>{{hot.institution}}</span>
+					<span class="date">
+						{{hot.startDate}} — {{hot.endDate}}
+					</span>
+				</h4>
+				<div class="area">
+          {{hot.area}}
+				</div>
+				<div class="studyType">
+					{{hot.studyType}}
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	
+	</div>
